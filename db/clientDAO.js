@@ -20,6 +20,18 @@ function findByUsername(username, callback) {
     });
 }
 
+function findByNumclient(num_client, callback) {
+    const selectClient = (`SELECT * from account where num_client like '${num_client}';`);
+    database.getResult(selectClient, function(err, rows) {
+        if (!err) {
+            callback(null, rows);
+        } else {
+            console.log(err);
+        }
+    });
+}
+
+
 function cryptPassword(pass, callback) {
     //set the complexity of the salt generation
     const saltRounds = 10;
@@ -57,6 +69,8 @@ function createAccount(num_client, username, password, callback) {
     });
 }
 
+
+
 function createClient(client, callback) {
     //insert client
     const insertClient = (`INSERT INTO client(society, contact, addres, zipcode, city, phone, fax, max_outstanding) VALUES('${client.society}', '${client.contact}', '${client.addres}', '${client.zipcode}', '${client.city}', '${client.phone}', '${client.fax}', ${client.max_outstanding});`);
@@ -73,9 +87,6 @@ function createClient(client, callback) {
 module.exports = {
     find,
     findByUsername,
-    findBySociety,
     findByNumclient,
-    createClient,
-    deleteClient,
-    createInitialAccounts
+    createClient
 };

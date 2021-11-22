@@ -1,5 +1,5 @@
 const { Client } = require('../models/entities');
-const clientDAO = require('../daos/clientDAO');
+const clientDAO = require('../db/clientDAO');
 const bcrypt = require("bcryptjs");
 
 const loginService = (typedUsername, typedPassword, callback) => {
@@ -77,7 +77,13 @@ const searchService = function(callback) { //to be completed
 };
 
 const searchNumclientService = function(num_client, callback) {
-    //to be completed
+  clientDAO.findByNumclient(num_client, function(err, rows) {
+      if (err) {
+          throw err;
+      } else {
+          callback(false, rows);
+      }
+  });
 };
 
 const deleteService = function(num_client, callback) {

@@ -1,0 +1,70 @@
+<%- include('header'); -%>
+    <table>
+      <tr>
+        <td>
+            Product Reference:
+        </td>
+        <td>
+            <%= product.reference %>
+        </td>
+    </tr>
+        <tr>
+            <td>
+                Product Name:
+            </td>
+            
+            <td>
+                <%= product.name %>
+            </td>
+        </tr>
+        <tr>
+          <td>
+              Product Supplier:
+          </td>
+          <td>
+              <%= product.supplier %>
+          </td>
+      </tr>
+        <tr>
+          <td>
+              Product Category:
+          </td>
+          <td>
+              <%= product.category %>
+          </td>
+      </tr>
+        <tr>
+            <td>
+                Product Price
+            </td>
+            <td>
+                <%= product.price %>AED
+            </td>
+        </tr>
+        
+        <tr>
+            <td>
+                Product Vat:
+            </td>
+            <td>
+                <%= product.vat %>AED
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Product Stock:
+            </td>
+            <td>
+                <%= product.stock %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Critical Stock:
+            </td>
+            <td>
+                <%= product.critical_stock %>
+            </td>
+        </tr>
+    </table>
+    <%- include('footer'); -%>
