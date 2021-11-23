@@ -80,8 +80,8 @@ const getClientByNumclient = (request, response) => {
   clientServices.searchNumclientService(num_client, function(err, rows) {
       response.json(rows);
       response.end();
-  });
-};
+    });
+  };
 
 module.exports = {
   loginControl,
@@ -89,3 +89,4 @@ module.exports = {
   getClients,
   getClientByNumclient
 };
+
